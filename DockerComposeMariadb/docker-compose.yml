@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+    db:
+        image: mariadb
+        container_name: dbenviroment
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: my-secret-pw
+            MYSQL_DATABASE: employee_directory
+        volumes:
+            - ./data_mysql:/var/lib/mysql
+            - ./data_mysql:/docker-entrypoint-initdb.d    
